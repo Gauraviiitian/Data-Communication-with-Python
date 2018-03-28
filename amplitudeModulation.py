@@ -23,14 +23,14 @@ def draw_message(am, fm):
     return xt
 
 #Drawing Modulated Wave
-def draw_modulated(ac, am, fc, fm):
+def draw_modulated(ac, fc, xm):
     t = np.arange(0,10,0.001)
     xm = am*np.sin(2*np.pi*fm*t)
     xt = (xm+ac)*np.sin(2*np.pi*fc*t)
     plt.title("Amplitude Modulated Wave")
     plt.xlabel("Time")
     plt.ylabel("Amplitude")
-    plt.plot(t, xt, "r", t, xm, "b")
+    plt.plot(t, xt)
     plt.show()
     
 #taking input from user
@@ -39,4 +39,4 @@ am, fm = map(float, raw_input("Input the amplitude and frequency of message sign
 
 draw_carrier(ac, fc)
 xm = draw_message(am, fm)
-draw_modulated(ac, am, fc, fm)
+draw_modulated(ac, fc, xm)
